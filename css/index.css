@@ -1,0 +1,57 @@
+/*
+File    : http://weblab.cs.uml.edu/~yleung/index.css
+Author  : Yuet Long Leung
+Email   : YuetLong_Leung@student.uml.edu
+Date    : September 22, 2015
+
+This webpage applies CSS styles to index.html
+
+Copyright (c) 2015 by Yuet Long Leung.  All rights reserved.
+*/
+
+body {
+    padding-top: 70px;/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+footer {
+    margin: 50px 0;
+}
+
+.btn {
+    border-radius: 0px; /* Disabled the button edge rounding feature from the template. */
+}
+
+
+img.img-responsive.resize{ /* Icon images are reduced to half of its size. */
+    max-width:50%;
+    max-height:50%;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    background-color: #EDEDED;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: #EDEDED;
+}
+
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #555;
+    background-color: #E6E6E6;
+}
+
+#about > div{
+    background-color: #E6E6E6;
+    padding: 100px 0;
+}
+
+#about p{
+    text-indent: 25px;
+    line-height: 200%;
+}
+
