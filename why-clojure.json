@@ -1,0 +1,19 @@
+{
+  "title" : "Why Clojure is awesome",
+  "author" : "Leo Polovets",
+  "date" : "11 Sep, 2013",
+  
+  "text" : {
+    "paragraphs" : [
+      ["Clojure is a JVM-based language which means you have full access to Java's rich, mature API and the myriad of libraries that have been implemented for Java over the last 15 years."],
+      ["Clojure is a Lisp, so all of the advantages that apply to Lisps apply to Clojure. Here's a good essay by Paul Graham describing some of the core values of Lisps Because \"code is data\", you can do really neat things with macros."],
+      ["For example, some of Java's hot new languages features included a for-each loop in Java 5 and a try-with-resources statement in Java 7; it would be fairly easy to write Clojure macros that extends Clojure to do the exact same things without having to wait for years for the next version of Java."],
+      ["Clojure is designed for concurrency. It offers immutable data structures, functional programming with zero side-effects, Software Transaction Memory built in, etc. You can focus your engineering efforts on features instead of concurrency details."],
+      ["Clojure is built for processing collections, which is great if you're working with a lot of data. At Factual, we've gotten a lot of mileage out of Cascalog, which is a Clojure DSL for writing Map-Reduce jobs very quickly and compactly. Actually, Cascalog deserves its own bullet point. If you write Map-Reduce jobs, Cascalog will save you a lot of time and effort and boilerplate."],
+      ["Lazy data structures are built-in so you can focus more on writing uncomplicated code than on performance tuning and efficiency. The interactive REPL makes development quicker and more fun. It also dramatically speeds up the learning process."],
+      ["Well-designed DSLs can significantly benefit projects, and Clojure's macro system gives you unprecedented power and flexibility when designing and implementing DSLs. "],
+      ["Here are two good examples of what you can do Quote from a Rich Hickey interview: You can reach a point with Lisp where, between the conceptual simplicity, the large libraries, and the customization of macros, you are able to write only code that matters."],
+      ["And, once there, you are able to achieve a very high degree of focus, such as you would when playing Go, or playing a musical instrument, or meditating. And then, as with those activities, there can be a feeling of elation that accompanies that mental state of focus."],
+      ["Clojure has an enthusiastic, fast-growing community, and you will learn a lot if you decide to participate in it. If you are an employer, Clojure attracts smart people -- exactly the kind of people you want to work for you The supply of Clojure programmers is not high, so knowing Clojure gives you a great advantage for any job where the language will be used."]]
+  }
+}
