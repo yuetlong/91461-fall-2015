@@ -2,7 +2,7 @@
   "title" : "Why Clojure is awesome",
   "author" : "Leo Polovets",
   "date" : "11 Sep, 2013",
-  
+  "source" : "https://www.quora.com/Why-would-someone-learn-Clojure", 
   "text" : {
     "paragraphs" : [
       ["Clojure is a JVM-based language which means you have full access to Java's rich, mature API and the myriad of libraries that have been implemented for Java over the last 15 years."],

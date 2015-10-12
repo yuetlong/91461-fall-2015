@@ -1,5 +1,5 @@
 /*
-File    : http://weblab.cs.uml.edu/~yleung/index.css
+File    : index.css
 Author  : Yuet Long Leung
 Email   : YuetLong_Leung@student.uml.edu
 Date    : September 22, 2015
@@ -19,12 +19,6 @@ footer {
 
 .btn {
     border-radius: 0px; /* Disabled the button edge rounding feature from the template. */
-}
-
-
-img.img-responsive.resize{ /* Icon images are reduced to half of its size. */
-    max-width:50%;
-    max-height:50%;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -55,3 +49,6 @@ img.img-responsive.resize{ /* Icon images are reduced to half of its size. */
     line-height: 200%;
 }
 
+div{
+    padding-top: 0px;
+}

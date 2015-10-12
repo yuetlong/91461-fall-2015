@@ -1,22 +1,13 @@
 /* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+    Author  : Yuet Long Leung
+    Email   : YuetLong_Leung@student.uml.edu
+    Date    : Oct 5, 2015
+    Copyright (c) 2015 by Yuet Long Leung.  All rights reserved.
  */
 
 var story;
 
-// Note to advanced students:
-//   Do *NOT* use the jQuery getJSON function here, because in this 
-// application the AJAX call has to be synchronous (that is, we need to 
-// wait for it to be done before continuing), and the getJSON function 
-// is always asynchronous.  Reference:
-// http://stackoverflow.com/questions/2765411/is-it-possible-to-set-asyncfalse-to-getjson-call
-//   The other approach is to change the global jQuery ajaxSetup option, 
-// but this is controversial, as discussed on the referenced page.
-
-
-//     load the JSON file containing the text of Lincoln's Gettysburg address 
+//     load the JSON file
 jQuery.ajax({
     async: false,
     dataType: "json",
@@ -50,8 +41,8 @@ function placeContent() {
 
     // create dynamic content from JSON
     strContent += "<h1 class='title'>" + story.title + "</h1>";
-    strContent += "<h2 class='author'>by " + story.author + "</h2>";
-    strContent += "<h3 class='date'>" + story.date + "</h3>";
+    strContent += "<h5 class='author'>by " + story.author + "</h5>";
+    strContent += "<h5 class='date'>" + story.date + "</h5>";
 
     // loop through all the paragraphs and sentences
     for (var para = 0; para < story.text.paragraphs.length; para++) {
@@ -61,8 +52,12 @@ function placeContent() {
         }
         strContent += "</p>";
     }
+    
+    
+    // a button that links to the source
+    strContent += "<a class=\"btn btn-default\" href=\"" + story.source +
+            "\">View Source <span class=\"glyphicon glyphicon-chevron-right\"></a>";
 
     // place dynamic content on page
-    // document.getElementById( "content" ).innerHTML = strContent ;
     jQuery("#content").html(strContent);
 }

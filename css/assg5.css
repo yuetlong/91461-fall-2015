@@ -1,0 +1,19 @@
+/*
+File    : css/assg5.css
+Author  : Yuet Long Leung
+Email   : YuetLong_Leung@student.uml.edu
+Date    : Oct 3, 2015
+
+This webpage applies CSS styles to assg5.html
+
+Copyright (c) 2015 by Yuet Long Leung.  All rights reserved.
+*/
+
+
+body {
+    padding-top: 70px;/* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+}
+
+.btn {
+    border-radius: 50px; /* Disabled the button edge rounding feature from the template. */
+}

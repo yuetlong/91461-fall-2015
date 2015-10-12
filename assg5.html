@@ -21,23 +21,40 @@
 
   <title>Long's Assignment 5</title>
   
-  <!--     CSS file that defines basic styles for the text  -->
-  <link type="text/css" rel="stylesheet" href="css/index.css" />
-  
   <!--     load jQuery library from the Google Content Delivery Network (CDN)     -->
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
   <!--     load the javascript that loads the JSON file -->
   <script src="js/assg5.js"></script>
   
+  <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/assg5.css" rel="stylesheet">
+  
 </head>
 
 <body>
     
-  <!-- dynamic content -->
-  <div id="content"></div>
+  <!-- place dynamic content under container class for BootStrap to pick up and decorate -->
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+         <!-- dynamic content -->
+        <div id="content"></div>
+          </div>
+      </div>
+      
+      <div class ="row">
+          <div class="col-md-12">
+            <a class="btn btn-default" href="index.html">
+                <span class="glyphicon glyphicon-chevron-left"></span> Go back
+            </a>
+          </div>
+      </div>
+  </div>
+  
   
 </body>
 
 </html>
-
