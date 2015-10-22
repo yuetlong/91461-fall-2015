@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Assignment 6</title>
+        <meta charset="UTF-8">
+        <script src="js/assg6.js"></script>
+        <!-- Bootstrap Core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="css/assg6.css" rel="stylesheet">
+        
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="inputs" action="form_action.asp" class="form-inline">
+                        <input type="text" placeholder = "Row min" class="form-control">
+                        <input type="text" placeholder = "Row max" class="form-control">
+                        <input type="text" placeholder = "Column min" class="form-control">
+                        <input type="text" placeholder = "Column max" class="form-control">
+                        <input type="button" value = "Submit" onclick = "submitForm()" class="btn btn-default">
+                    </form>
+                </div>
+            </div>
+            <div>
+                <table id="mytable" class="table table-condensed"></table>
+            </div>
+        </div>
+        
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
+
