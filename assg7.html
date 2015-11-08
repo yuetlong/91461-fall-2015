@@ -1,43 +1,81 @@
 <!DOCTYPE html>
 <!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
+  File:  assg7.html
+
+  Name: Yuet Long Leung
+
+  Organization: UMass Lowell Computer Science
+
+  E-Mail: YuetLong_Leung@student.uml.edu
+
+  Copyright (c) 2015 by Yuet Long Leung.  All rights reserved.  May be freely
+  copied or excerpted for educational purposes with credit to the author.
+
+  Source for form layout: http://v4-alpha.getbootstrap.com/components/forms/
+
 -->
 <html>
     <head>
-        <title>Assignment 6</title>
+        <title>Assignment 7</title>
         <meta charset="UTF-8">
-        <script src="js/assg6.js"></script>
-        <!-- Bootstrap Core CSS -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <!-- Custom CSS -->
-        <link href="css/assg6.css" rel="stylesheet">
-        
     </head>
     <body>
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <form id="inputs" action="form_action.asp" class="form-inline">
-                        <input type="text" placeholder = "Row min" class="form-control">
-                        <input type="text" placeholder = "Row max" class="form-control">
-                        <input type="text" placeholder = "Column min" class="form-control">
-                        <input type="text" placeholder = "Column max" class="form-control">
-                        <input type="button" value = "Submit" onclick = "submitForm()" class="btn btn-default">
-                    </form>
-                </div>
-            </div>
-            <div>
-                <table id="mytable" class="table table-condensed"></table>
-            </div>
-        </div>
-        
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+            
+            <div class="col-sm-5">
+                    <form id="frm" role="form">
+                        
+                        <div class="form-group has-feedback row">
+                            <label for="xBegin" class="control-label"> Row min</label>
+                            <input type="number" placeholder = "Row min" class="form-control"  id="xBegin" name="xBegin">
+                        </div>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
+                        <div class="form-group has-feedback row">
+                             <label for="xEnd" class="control-label"> Row max</label>
+                             <input type="number" placeholder = "Row max" class="form-control"  id="xEnd"   name="xEnd">
+                        </div>
+                        
+                        <div class="form-group has-feedback row">
+                             <label for="yBegin" class="control-label"> Column min</label>
+                             <input type="number" placeholder = "Column min" class="form-control"  id="yBegin" name="yBegin">
+                        </div>
+                        
+                        <div class="form-group has-feedback row">
+                             <label for="yEnd" class="control-label"> Column min</label>
+                             <input type="number" placeholder = "Column max" class="form-control"  id="yEnd"   name="yEnd">
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="submit" name="Submit" id="Submit" value="Generate" class="btn btn-danger btn-block btn-lg" />
+                        </div>
+                    </form>
+            </div> <!-- end div class="col-sm-5"-->
+            
+            <div class="col-sm-7">
+                <table id="mytable">
+                    <!-- Filled by function builtATable() in assg7.js-->
+                </table>
+            </div>
+            
+        </div>
+    
+        
+    <!-- Bootstrap v3.3.5 CSS CDN -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+        
+    <!-- Bootstrap v3.3.5 Javascript CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>    
+    
+    <!-- JQuery 2.1.3-->
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.3.min.js"></script>
+    
+    <!-- JQuery Validate Plugin -->
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.0/jquery.validate.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link href="css/assg7.css" rel="stylesheet">
+    
+    <!-- Custom java script -->
+    <script src="js/assg7.js"></script>
     </body>
 </html>
-
