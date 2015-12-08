@@ -1,0 +1,31 @@
+/*
+File    : css/assg9.css
+Author  : Yuet Long Leung
+Email   : YuetLong_Leung@student.uml.edu
+Date    : Dec 8, 2015
+
+Copyright (c) 2015 by Yuet Long Leung.  All rights reserved.
+*/
+
+#draggable {
+  width: 81px;
+  height: 87px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px 10px 10px 0;
+}
+
+#droppable {
+  width: 81px;
+  height: 87px;
+  padding: 0.5em;
+  float: left;
+  margin: 10px;
+}
+
+.error {
+  margin-left: 8px ;
+  color: red ;
+  font-style: italic ;
+  font-weight: bold ;
+}
