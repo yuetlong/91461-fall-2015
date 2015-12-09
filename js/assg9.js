@@ -44,7 +44,7 @@
  	["X",8,1],
  	["Y",4,2],
  	["Z",10,1],
-  ["blank",2,0]
+  ["blank",0,2]
 ];
 
 // I am going to sequentially insert all the pieces into the array then shuffle it.
@@ -52,7 +52,7 @@
 var p_gen = new Array();
 
 for (i = 0; i < pieces.length ; i++){
-  for (j = 0; j < pieces[i][1]; j++){
+  for (j = 0; j < pieces[i][2]; j++){
     p_gen.push(pieces[i][0]);
   }
 }
@@ -78,29 +78,71 @@ function shuffle(array) {
   return array;
 }
 
-
 shuffle(p_gen);
 
+$(document).ready(function() {
+  // generate all the pieces
 
-for (i = 0; i < 7; i++){
-  $('<div><img src=img/st/'+ p_gen[i][0] +'.jpg height =\'87\' width =\'81\'></div>')
-  .data('letter',p_gen[i][0])
-  .attr('id',"draggable")
-  .appendTo('#rack')
-  .draggable();
-}
+  for (i = 0; i < 7; i++){
+    $('<span><img src=img/st/'+ p_gen[i][0] +'.jpg height =\'87\' width =\'81\'></span>')
+    .data('piece_letter',p_gen[i]) // add attribute - piece_letter
+    .attr("id",i)
+    .appendTo('#rack')
+    .draggable({
 
+      //stack: '#rack div', // make sure it always sit on the other cards
 
-//$(document).ready(function() {}); // end $(document).ready(function()
+      revert : true, // this makes the piece move back to initial position when dropped.
 
-$(function() {
-  $( "#draggable" ).draggable();
+      start: function(event,ui){
 
-  $( "#droppable" ).droppable({
-    drop: function( event, ui ) {
-      // this adjusts the position of the draggable right at the center of the drop zone
-      ui.draggable.position({ of: $(this), my: 'center', at: 'center' });
-      console.log(ui.draggable.attr("letter"));
-    }
-  });
-});
+        $(this).draggable('option','revert',true);
+
+      }
+    });
+  }
+
+  // generate all the slots in the board
+
+  for (i = 0; i < 7 ; i++){
+    $('<span><img src=img/nt.jpg height =\'87\' width =\'81\'></span>')
+    .data('holding_piece_letter', "none") // add attribute - holding_piece_letter
+    .appendTo('#board')
+    .droppable({
+
+      hoverClass:'hovered',
+
+      drop: function( event, ui ) {
+
+        // if the droppable is not occupied ...
+        if($(this).data('holding_piece_letter') === "none"){
+
+          // this adjusts the position of the draggable right at the center of the drop zone
+          ui.draggable.position({ of: $(this), my: 'center', at: 'center' });
+
+          // makes the piece stop going back to the rack
+          ui.draggable.draggable('option','revert',false);
+
+          // assigns the letter of the draggable to the droppable
+          $(this).data('holding_piece_letter', ui.draggable.data('piece_letter'));
+
+          // disable the droppable to prevent overlapping
+          $(this).droppable("option","disabled",true);
+
+          console.log($(this).droppable("option","accept"));
+        }
+      }, // end drop function
+
+      out: function (event, ui){
+
+        // clear the entry
+        $(this).data('holding_piece_letter',"none");
+
+        // make the droppable available again
+        $(this).droppable("option","disabled",false);
+
+        console.log("Out");
+      }
+    })
+  }
+}); // end $(document).ready(function()

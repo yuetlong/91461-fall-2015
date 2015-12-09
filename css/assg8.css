@@ -1,0 +1,43 @@
+/*
+File    : css/assg8.css
+Author  : Yuet Long Leung
+Email   : YuetLong_Leung@student.uml.edu
+Date    : Nov 17, 2015
+
+This webpage applies CSS styles to assg7.html
+
+Copyright (c) 2015 by Yuet Long Leung.  All rights reserved.
+*/
+
+/* width and height of cells should be consistent throughout */
+tr > td {
+    width: 50px;
+    height: 25px;
+    text-align: center;
+}
+
+/* selects the content cells */
+tr:not(:first-of-type) > td:not(:first-of-type) {
+    border: 1px solid #ccc;
+}
+/* white out the empty cell at the corner */
+tr:first-child > td:first-child{
+    border: 0px solid #ccc;
+}
+
+/* selects the first row and the first column of every row, except the cell at top left corner */
+tr:first-of-type > td:not(:first-child) , tr:not(:first-of-type) > td:first-child{
+    font-weight: bold;
+    background: #EEEEEE;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-style:solid;
+    border-color:#999999;
+}
+
+.error {
+  margin-left: 8px ;
+  color: red ;
+  font-style: italic ;
+  font-weight: bold ;
+}
