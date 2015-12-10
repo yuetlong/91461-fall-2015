@@ -7,25 +7,32 @@ Date    : Dec 8, 2015
 Copyright (c) 2015 by Yuet Long Leung.  All rights reserved.
 */
 
-#draggable {
-  width: 81px;
-  height: 87px;
-  padding: 0.5em;
-  float: left;
-  margin: 10px 10px 10px 0;
+#board > table {
+  border-collapse: collapse;
 }
 
-#droppable {
-  width: 81px;
-  height: 87px;
-  padding: 0.5em;
-  float: left;
-  margin: 10px;
+#board > table > tr > td{
+  height: 50px;
+  width:  50px;
+  background-color: #f5f5f5;
+  border: 1px solid black;
 }
 
-.error {
-  margin-left: 8px ;
-  color: red ;
-  font-style: italic ;
-  font-weight: bold ;
+#board > table > tr > td[multiplier='3W']{
+  background-color: #c23333;
+}
+
+#board > table > tr > td[multiplier='2L']{
+  background-color: #445cff;
+}
+
+#board > table > tr > td[multiplier='3L']{
+  background-color: #6de2c9;
+}
+
+#board > table > tr > td[multiplier='2W']{
+  background-color: #e26cc8;
+}
+#board > table > tr > td[multiplier='STAR']{
+  background-color: #e6ce31;
 }
