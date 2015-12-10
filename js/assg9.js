@@ -106,7 +106,10 @@ shuffle(p_gen);
 
 $(document).ready(function() {
 
-  // Generate HTML for the pieces
+  /******************************************************************************************
+                                    Generate HTML for the pieces
+  *******************************************************************************************/
+
   for (i = 0; i < 7; i++){
     new_piece = document.createElement('span');
     new_piece.setAttribute('class','piece');
@@ -123,7 +126,9 @@ $(document).ready(function() {
     document.getElementById('rack').appendChild(new_piece);
   }
 
-  // Generate HTML for the board
+  /******************************************************************************************
+                               Generate HTML for the board tiles
+  *******************************************************************************************/
 
   new_table = document.createElement('table');
 
@@ -180,21 +185,37 @@ $(document).ready(function() {
 
   document.getElementById('board').appendChild(new_table);
 
-  // Configure the pieces by JQuery UI
+
+  /******************************************************************************************
+                               Configure the pieces by JQuery UI
+  *******************************************************************************************/
+
 
   $(".piece").draggable({
+
+    // this prevents pieces being moved to arbitary places
     revert : true,
-    stack  : ".piece", // this will make sure it's always on top
+
+    // this will make sure it's always on top
+    stack  : ".piece",
+
     start  : function(event,ui){
        $(this).draggable('option','revert',true);
      }
   });// end $(".pieces").draggable
 
-  // Configure the tiles by JQuery UI
+
+  /******************************************************************************************
+                               Configure the tiles by JQuery UI
+  *******************************************************************************************/
+
   $(".tile").droppable({
 
     // always gets hovered above
     hoverClass:'hovered',
+
+    // default accepts all kinds of pieces
+    accept : '.piece',
 
     drop: function(e, ui ) {
 
@@ -204,18 +225,35 @@ $(document).ready(function() {
       // makes the piece stop going back to the rack
       ui.draggable.draggable('option','revert',false);
 
-      // only accepts the target when it's dropped
-      $(this).droppable('option','accept',ui.draggable);
+      // only accepts the target id when it's dropped
+      $(this).droppable('option','accept',"#" + ui.draggable.attr('id'));
 
       // store the letter into the array
       letters_on_board[$(this).attr('row')][$(this).attr('column')] = ui.draggable.attr('letter');
     },
 
+
+    /******************************************************************************************
+               Because of the design of JQuery, this out function runs whenever an
+               acceptable draggable moves out of the tile, Proceed with care.
+    *******************************************************************************************/
+
     out: function (e, ui){
-      // accepts all pieces when accepted piece moves out
-      $(this).droppable('option','accept',".piece");
+      if ($(this).droppable('option','accept') != ".piece"){
+
+        // accepts all pieces when accepted piece moves out
+        $(this).droppable('option','accept',".piece");
+
+        // clear the array element
+        letters_on_board[$(this).attr('row')][$(this).attr('column')] = undefined;
+      }
     }
   }); // end  $(".tile").droppable({
+
+
+      /******************************************************************************************
+                                   Configure the rack by JQuery UI
+      *******************************************************************************************/
 
   $("#rack").droppable({
     drop: function(e,ui){
