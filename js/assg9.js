@@ -139,36 +139,44 @@ function get_score(){
   /******************************************************************************************
         Make a function for the multipling word score tiles.
   *******************************************************************************************/
-  function multiply_word(i, j, m){
+
+  function adjacent_word_score_count(i, j){
+
+    c = 0;
+
     // go up ... (and itself)
     a = i;
 
     while(a >= 0 && letters_on_board[a][j] != "empty")
-        score_on_board[a--][j] *= m;
+        c += score_on_board[a--][j];
 
     // go down
     a = i + 1;
 
     while(a <= 14 && letters_on_board[a][j] != "empty")
-        score_on_board[a++][j] *= m;
+        c += score_on_board[a++][j];
 
     // go left
-    b = j;
+    b = j - 1;
 
     while(b >= 0 && letters_on_board[i][b] != "empty")
-        score_on_board[i][b--] *= m;
+        c += score_on_board[i][b--];
 
     // go right
     b = j + 1;
 
     while(b <= 14 && letters_on_board[i][b] != "empty")
-        score_on_board[i][b++] *= m;
+        c += score_on_board[i][b++];
+
+    console.log("c",c);
+    return c;
   } // end function multiply_word(i, j, m){
 
 
     /******************************************************************************************
           Main loop for calculating the scores of individual tiles.
     *******************************************************************************************/
+
   for (i = 0; i < 15; i++){
     for (j = 0 ; j < 15 ; j++){
       if (letters_on_board[i][j] != "empty"){
@@ -184,16 +192,6 @@ function get_score(){
         else if (((i == 1 || i == 13) && (j == 5 || j == 9))
               || ((i == 5 || i == 9) &&  (j == 1 || j == 5 || j == 9 || j == 13))){
           score_on_board[i][j] *= 3;
-        }g
-        if ((i == 0 || i == 7 || i == 14) && (j == 0 || j == 7 || j == 14) && !(i == 7 && j == 7)){
-          multiply_word(i,j,3);
-        }
-
-        else if (((i == 1 || i == 13) && (j == 1 || j == 13))
-             ||  ((i == 2 || i == 12) && (j == 2 || j == 12))
-             ||  ((i == 3 || i == 11) && (j == 3 || j == 11))
-             ||  ((i == 4 || i == 10) && (j == 4 || j == 10))){
-          multiply_word(i,j,2);
         }
       }
       else{
@@ -202,14 +200,25 @@ function get_score(){
     }
   }
 
-
     /******************************************************************************************
         Make a function for the multipling word score tiles.
     *******************************************************************************************/
 
   for(i = 0; i < 15; i++){
     for(j = 0; j < 15; j++){
-      total_score += score_on_board[i][j];
+      if (letters_on_board[i][j] != "empty"){
+        if ((i == 0 || i == 7 || i == 14) && (j == 0 || j == 7 || j == 14) && !(i == 7 && j == 7)){
+          total_score += 2 * adjacent_word_score_count(i,j);
+        }
+
+        else if (((i == 1 || i == 13) && (j == 1 || j == 13))
+             ||  ((i == 2 || i == 12) && (j == 2 || j == 12))
+             ||  ((i == 3 || i == 11) && (j == 3 || j == 11))
+             ||  ((i == 4 || i == 10) && (j == 4 || j == 10))){
+          total_score += adjacent_word_score_count(i,j);
+        }
+        total_score += score_on_board[i][j];
+      }
     }
   }
 
